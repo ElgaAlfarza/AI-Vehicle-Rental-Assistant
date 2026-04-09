@@ -1,0 +1,399 @@
+/* Inventory Filters Bar */
+.filters-bar {
+  margin-bottom: 40px;
+  padding: 8px;
+  background-color: var(--surface-container);
+  border-radius: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--surface-container-lowest);
+  padding: 8px 16px;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.filter-item .material-symbols-outlined {
+  color: var(--primary);
+  font-size: 18px;
+}
+.filter-select {
+  background: transparent;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  outline: none;
+  color: var(--on-surface);
+  cursor: pointer;
+  padding-right: 8px;
+}
+.filter-advanced {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 16px;
+}
+.filter-divider {
+  height: 32px;
+  width: 1px;
+  background-color: rgba(190, 201, 196, 0.3);
+}
+.btn-advanced {
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Inventory Grid */
+.inventory-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+@media (min-width: 768px) {
+  .inventory-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1280px) {
+  .inventory-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.inventory-card {
+  background-color: var(--surface-container-lowest);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 83, 68, 0.04);
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+.inventory-card:hover {
+  transform: scale(1.02);
+}
+.inventory-card:hover .card-image {
+  transform: scale(1.1);
+}
+
+.card-image-container {
+  position: relative;
+  height: 256px;
+  overflow: hidden;
+}
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.badge-available {
+  background-color: var(--primary-fixed);
+  color: var(--on-primary-fixed-variant);
+}
+.badge-booked {
+  background-color: var(--tertiary-fixed);
+  color: var(--on-tertiary-fixed-variant);
+}
+
+.card-price {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  padding: 6px 12px;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.card-price-value {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 18px;
+}
+.card-price-unit {
+  color: var(--on-surface-variant);
+  font-size: 12px;
+}
+
+.inventory-card-body {
+  padding: 24px;
+}
+.inventory-card-body.opacity-80 {
+  opacity: 0.8;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+.card-header h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--on-surface);
+  letter-spacing: -0.025em;
+}
+.icon-favorite {
+  color: rgba(0, 83, 68, 0.4);
+}
+
+.card-description {
+  color: var(--on-surface-variant);
+  font-size: 14px;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.card-features {
+  display: flex;
+  gap: 16px;
+  color: var(--on-surface-variant);
+}
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.feature-item .material-symbols-outlined {
+  font-size: 18px;
+}
+.feature-item span:last-child {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Promo Bento */
+.promo-bento {
+  background-color: var(--secondary-container);
+  border-radius: 24px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 83, 68, 0.04);
+}
+.promo-content {
+  position: relative;
+  z-index: 10;
+}
+.promo-tag {
+  color: var(--primary);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  font-size: 10px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+.promo-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--on-secondary-container);
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+.promo-text {
+  color: rgba(75, 104, 97, 0.8);
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+.btn-promo {
+  background-color: var(--primary);
+  color: var(--on-primary);
+  padding: 10px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: transform 0.2s;
+}
+.btn-promo:hover {
+  transform: scale(1.05);
+}
+.promo-bg-icon {
+  position: absolute;
+  right: -32px;
+  bottom: -32px;
+  opacity: 0.2;
+}
+.promo-bg-icon .material-symbols-outlined {
+  font-size: 160px;
+}
+
+/* Pagination / Load More */
+.pagination-area {
+  margin-top: 64px;
+  display: flex;
+  justify-content: center;
+}
+.btn-load-more {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background-color: var(--surface-container-high);
+  border-radius: 16px;
+  font-weight: 700;
+  color: var(--primary);
+  transition: background-color 0.2s;
+}
+.btn-load-more:hover {
+  background-color: var(--surface-container-highest);
+}
+
+/* Contextual FAB */
+.fab-contextual {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 64px;
+  height: 64px;
+  background-color: var(--primary);
+  color: var(--on-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s;
+  z-index: 50;
+  backdrop-filter: blur(12px);
+}
+.fab-contextual:hover {
+  transform: scale(1.1);
+}
+.fab-contextual .material-symbols-outlined {
+  font-size: 30px;
+}
+
+/* Inventory Stats Pill */
+.inv-stats-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--surface-container);
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--on-surface-variant);
+}
+.inv-stats-pill .material-symbols-outlined {
+  font-size: 18px;
+  color: var(--primary);
+}
+.inv-stats-divider {
+  color: var(--outline-variant);
+}
+
+/* Vehicle Type Badge */
+.vehicle-type-badge {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 2px 10px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  background-color: var(--primary-container);
+  color: var(--on-primary-container);
+}
+
+/* Sewa Card Button */
+.btn-sewa-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  width: 100%;
+  padding: 12px;
+  background-color: var(--primary);
+  color: var(--on-primary);
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-sewa-card:hover {
+  opacity: 0.9;
+  box-shadow: 0 8px 20px rgba(0, 83, 68, 0.2);
+}
+.btn-booked-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  width: 100%;
+  padding: 12px;
+  background-color: var(--surface-container-high);
+  color: var(--on-surface-variant);
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Refresh Button */
+.btn-refresh-inv {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  margin-left: auto;
+  transition: all 0.2s;
+}
+.btn-refresh-inv:hover {
+  box-shadow: 0 4px 12px rgba(0, 83, 68, 0.2);
+}
+
+/* Loading & Empty States */
+.inv-loading, .inv-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0;
+  gap: 16px;
+  color: var(--on-surface-variant);
+}
+.inv-loading .material-symbols-outlined,
+.inv-empty .material-symbols-outlined {
+  font-size: 48px;
+  color: var(--outline);
+}
+
+.opacity-80 {
+  opacity: 0.7;
+}
+
